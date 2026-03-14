@@ -470,10 +470,6 @@ img, video  { display: block; max-width: 100%; }
 /* ===== PRODUCTS ===== */
 #products {
   padding:    72px 0 80px;
-  min-height: 100vh;
-  display:    flex;
-  flex-direction: column;
-  justify-content: flex-start;
   box-sizing: border-box;
 }
 
@@ -552,13 +548,9 @@ img, video  { display: block; max-width: 100%; }
 
 /* ===== TECHNOLOGY SECTION ===== */
 #technology {
-  padding:        72px 0 40px;
-  min-height:     100vh;
-  background:     linear-gradient(160deg, #EEF3FA 0%, #E2EBF5 40%, #D4E4F2 100%);
-  display:        flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  box-sizing:     border-box;
+  padding:    72px 0 80px;
+  background: linear-gradient(160deg, #EEF3FA 0%, #E2EBF5 40%, #D4E4F2 100%);
+  box-sizing: border-box;
 }
 
 #technology .container { width: 100%; }
@@ -851,13 +843,9 @@ img, video  { display: block; max-width: 100%; }
 
 /* ===== OUR STORY TIMELINE ===== */
 #our-story {
-  padding:        72px 0 80px;
-  min-height:     100vh;
-  background:     linear-gradient(160deg, #EEF3FA 0%, #E2EBF5 40%, #D4E4F2 100%);
-  display:        flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  box-sizing:     border-box;
+  padding:    72px 0 80px;
+  background: linear-gradient(160deg, #EEF3FA 0%, #E2EBF5 40%, #D4E4F2 100%);
+  box-sizing: border-box;
 }
 
 /* Match Our Story tag to tech eyebrow */
@@ -983,12 +971,8 @@ img, video  { display: block; max-width: 100%; }
 
 /* ===== CONTACT ===== */
 #contact {
-  padding:        72px 0 80px;
-  min-height:     100vh;
-  display:        flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  box-sizing:     border-box;
+  padding:    72px 0 80px;
+  box-sizing: border-box;
 }
 
 /* Match Get in Touch tag to Product Suite size */
@@ -1195,21 +1179,21 @@ footer {
     max-width: 580px;
   }
 
-  /* PAGE 2 – Technology: 3 cols → 2 cols, no forced full-height */
-  #technology     { padding: 72px 0 32px; min-height: auto; display: block; }
+  /* PAGE 2 – Technology: 3 cols → 2 cols */
+  #technology     { padding: 72px 0 60px; }
   .tech-card-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .tech-video-wrap .tech-video-frame { aspect-ratio: 16 / 5.5; }
 
   /* PAGE 3 – Products: 4 cols → 2 cols */
-  #products       { padding: 72px 0 60px; min-height: auto; display: block; }
+  #products       { padding: 72px 0 60px; }
   .product-grid   { grid-template-columns: repeat(2, 1fr); gap: 20px; }
   .section-header { margin-bottom: 40px; }
 
   /* PAGE 4 – Our Story */
-  #our-story      { min-height: auto; display: block; }
+  #our-story      { padding: 72px 0 60px; }
 
   /* PAGE 5 – Contact */
-  #contact        { min-height: auto; display: block; }
+  #contact        { padding: 72px 0 60px; }
   .contact-grid   { gap: 52px; }
 }
 
@@ -1240,20 +1224,20 @@ footer {
   }
 
   /* PAGE 2 – Technology */
-  #technology     { padding: 60px 0 24px; min-height: auto; display: block; }
+  #technology     { padding: 60px 0 48px; }
   .tech-card-grid { grid-template-columns: repeat(2, 1fr); }
   .tech-video-wrap .tech-video-frame { aspect-ratio: 16 / 6; }
   .tech-eyebrow   { font-size: 0.85rem; letter-spacing: 0.12em; }
   .tech-main-title { font-size: 1.1rem; }
 
   /* PAGE 3 – Products */
-  #products { padding: 60px 0 50px; min-height: auto; display: block; }
+  #products { padding: 60px 0 50px; }
 
   /* PAGE 4 – Our Story */
-  #our-story { padding: 60px 0 50px; min-height: auto; display: block; }
+  #our-story { padding: 60px 0 50px; }
 
   /* PAGE 5 – Contact: 2 cols → 1 col */
-  #contact          { padding: 60px 0 50px; min-height: auto; display: block; }
+  #contact          { padding: 60px 0 50px; }
   .contact-grid     { grid-template-columns: 1fr; gap: 32px; }
   .contact-info-title { margin-top: 0; }
   .contact-heading  { font-size: 1.7rem; margin-bottom: 20px; }
@@ -1312,7 +1296,7 @@ footer {
   .hero-actions .btn  { width: 100%; justify-content: center; padding: 13px 20px; }
 
   /* PAGE 2 – Technology */
-  #technology         { padding: 62px 0 16px; min-height: auto; display: block; }
+  #technology         { padding: 56px 0 40px; }
   .tech-header        { margin-bottom: 12px; }
   .tech-eyebrow       { font-size: 0.75rem; padding: 3px 11px; letter-spacing: 0.10em; }
   .tech-main-title    { font-size: 0.95rem; }
@@ -1364,7 +1348,7 @@ footer {
   .btn                { padding: 11px 18px; font-size: 0.76rem; }
 
   /* PAGE 2 – Technology */
-  #technology         { padding: 56px 0 14px; }
+  #technology         { padding: 52px 0 36px; }
   .tech-card-inner    { padding: 10px 11px 9px; }
   .tech-card-heading  { font-size: 0.74rem; letter-spacing: 0.07em; }
   .tech-card-body     { font-size: 0.76rem; line-height: 1.52; }
