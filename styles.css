@@ -799,10 +799,11 @@ img, video  { display: block; max-width: 100%; }
   z-index:        4;
   line-height:    1;
 }
-.vid-coord-tl { top: 20px;    left: 12px; }
-.vid-coord-tr { top: 20px;    right: 12px; text-align: right; }
-.vid-coord-bl { bottom: 20px; left: 12px; }
-.vid-coord-br { bottom: 20px; right: 12px; text-align: right; }
+/* text with small gap after the inner edge of each L-bracket */
+.vid-coord-tl { top: 18px;    left: 18px; }
+.vid-coord-tr { top: 18px;    right: 18px; text-align: right; }
+.vid-coord-bl { bottom: 18px; left: 18px; }
+.vid-coord-br { bottom: 18px; right: 18px; text-align: right; }
 
 .video-inner {
   display:        flex;
@@ -834,11 +835,13 @@ img, video  { display: block; max-width: 100%; }
 
 .video-caption {
   font-family:    'Open Sans', sans-serif;
-  font-size:      0.72rem;
+  font-size:      clamp(0.50rem, 1.2vw, 0.72rem);
   font-weight:    700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color:          rgba(0, 209, 193, 0.70);
+  text-align:     center;
+  max-width:      80%;
 }
 
 /* ===== OUR STORY TIMELINE ===== */
@@ -1321,13 +1324,13 @@ footer {
   .tech-video-wrap    { margin-top: 8px; }
   .tech-video-wrap .tech-video-frame { aspect-ratio: 16 / 7; min-height: 0; max-height: 200px; }
   .vid-coord          { font-size: 0.44rem; letter-spacing: 0.04em; }
-  .vid-coord-tl       { top: 8px;    left: 8px; }
-  .vid-coord-tr       { top: 8px;    right: 8px; }
-  .vid-coord-bl       { bottom: 8px; left: 8px; }
-  .vid-coord-br       { bottom: 8px; right: 8px; }
+  .vid-coord-tl       { top: 18px;    left: 18px; }
+  .vid-coord-tr       { top: 18px;    right: 18px; }
+  .vid-coord-bl       { bottom: 18px; left: 18px; }
+  .vid-coord-br       { bottom: 18px; right: 18px; }
   .video-inner        { gap: 8px; }
   .video-play-btn     { width: 48px; height: 48px; }
-  .video-caption      { font-size: 0.58rem; letter-spacing: 0.08em; }
+  .video-caption      { font-size: clamp(0.46rem, 1.8vw, 0.58rem); letter-spacing: 0.07em; }
 
   /* PAGE 3 – Products */
   #products       { padding: 56px 0 40px; }
@@ -1377,7 +1380,7 @@ footer {
   .vid-coord          { font-size: 0.40rem; }
   .video-inner        { gap: 6px; }
   .video-play-btn     { width: 38px; height: 38px; }
-  .video-caption      { font-size: 0.52rem; }
+  .video-caption      { font-size: clamp(0.42rem, 2vw, 0.52rem); letter-spacing: 0.06em; }
 
   /* PAGE 3 – Products */
   .product-card       { padding: 20px 16px 18px; }
@@ -1408,7 +1411,7 @@ footer {
   .tech-video-wrap .tech-video-frame { max-height: 130px; aspect-ratio: 16 / 6; }
   .vid-coord { display: none; }
   .video-play-btn { width: 34px; height: 34px; }
-  .video-caption  { font-size: 0.48rem; }
+  .video-caption  { font-size: 0.44rem; letter-spacing: 0.05em; }
   .product-card    { padding: 18px 14px 16px; }
   .contact-heading { font-size: 1.1rem; }
   .btn             { padding: 10px 16px; font-size: 0.73rem; }
