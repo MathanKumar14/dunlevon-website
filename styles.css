@@ -1195,18 +1195,22 @@ footer {
     max-width: 580px;
   }
 
-  /* PAGE 2 – Technology: 3 cols → 2 cols */
-  #technology       { padding: 72px 0 32px; }
-  .tech-card-grid   { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  /* PAGE 2 – Technology: 3 cols → 2 cols, no forced full-height */
+  #technology     { padding: 72px 0 32px; min-height: auto; display: block; }
+  .tech-card-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .tech-video-wrap .tech-video-frame { aspect-ratio: 16 / 5.5; }
 
   /* PAGE 3 – Products: 4 cols → 2 cols */
+  #products       { padding: 72px 0 60px; min-height: auto; display: block; }
   .product-grid   { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  #products       { padding: 80px 0; }
-  .section-header { margin-bottom: 48px; }
+  .section-header { margin-bottom: 40px; }
+
+  /* PAGE 4 – Our Story */
+  #our-story      { min-height: auto; display: block; }
 
   /* PAGE 5 – Contact */
-  .contact-grid { gap: 52px; }
+  #contact        { min-height: auto; display: block; }
+  .contact-grid   { gap: 52px; }
 }
 
 /* ─────────────────────────────────────────────
@@ -1236,21 +1240,21 @@ footer {
   }
 
   /* PAGE 2 – Technology */
-  #technology     { padding: 68px 0 28px; min-height: auto; display: block; }
+  #technology     { padding: 60px 0 24px; min-height: auto; display: block; }
   .tech-card-grid { grid-template-columns: repeat(2, 1fr); }
   .tech-video-wrap .tech-video-frame { aspect-ratio: 16 / 6; }
   .tech-eyebrow   { font-size: 0.85rem; letter-spacing: 0.12em; }
   .tech-main-title { font-size: 1.1rem; }
 
   /* PAGE 3 – Products */
-  #products { padding: 64px 0 60px; min-height: auto; display: block; }
+  #products { padding: 60px 0 50px; min-height: auto; display: block; }
 
   /* PAGE 4 – Our Story */
-  #our-story { min-height: auto; display: block; }
+  #our-story { padding: 60px 0 50px; min-height: auto; display: block; }
 
   /* PAGE 5 – Contact: 2 cols → 1 col */
-  #contact          { padding: 64px 0 60px; min-height: auto; display: block; }
-  .contact-grid     { grid-template-columns: 1fr; gap: 36px; }
+  #contact          { padding: 60px 0 50px; min-height: auto; display: block; }
+  .contact-grid     { grid-template-columns: 1fr; gap: 32px; }
   .contact-info-title { margin-top: 0; }
   .contact-heading  { font-size: 1.7rem; margin-bottom: 20px; }
 }
@@ -1324,19 +1328,19 @@ footer {
   .video-caption      { font-size: 0.60rem; }
 
   /* PAGE 3 – Products */
-  #products       { padding: 68px 0; }
+  #products       { padding: 56px 0 40px; }
   .product-grid   { gap: 14px; }
   .product-card   { padding: 24px 20px 22px; }
   .product-card-title { font-size: 0.92rem; }
   .product-card-body  { font-size: 0.84rem; }
 
   /* PAGE 5 – Contact */
-  #contact          { padding: 68px 0; }
+  #contact          { padding: 56px 0 40px; }
   .contact-heading  { font-size: 1.4rem; }
-  .contact-grid     { gap: 28px; }
+  .contact-grid     { gap: 24px; }
   .contact-info-body { font-size: 0.84rem; }
   .form-input, .form-textarea { font-size: 0.85rem; padding: 10px 14px; }
-  .form-textarea    { min-height: 100px; }
+  .form-textarea    { min-height: 90px; }
 
   /* Footer */
   .footer-inner { flex-direction: column; align-items: flex-start; gap: 14px; }
