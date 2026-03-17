@@ -198,6 +198,90 @@ function initSmoothScroll() {
 }
 
 /* =============================================================
+   PRODUCT VIDEO CAROUSEL
+   4-up stepped-transparent video showcase at end of Products.
+   Active card is front/full; others cascade diagonally behind.
+   Click a non-active card to select it. Click active to play.
+   Left / Right buttons and dot indicators for navigation.
+   ============================================================= */
+function initProductVideoCarousel() {
+  const stage   = document.getElementById('pvcarousel-stage');
+  if (!stage) return;
+
+  const items   = Array.from(stage.querySelectorAll('.pvc-item'));
+  const dots    = Array.from(document.querySelectorAll('.pvc-dot'));
+  const prevBtn = document.getElementById('pvc-prev');
+  const nextBtn = document.getElementById('pvc-next');
+  const total   = items.length;
+  let   current = 0;
+
+  const PLAY_ICON  = `<svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>`;
+  const PAUSE_ICON = `<svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>`;
+
+  function syncPlayBtn(item, isPaused) {
+    const btn = item.querySelector('.pvc-play');
+    if (btn) btn.innerHTML = isPaused ? PLAY_ICON : PAUSE_ICON;
+  }
+
+  function setPositions() {
+    items.forEach((item, i) => {
+      const pos = ((i - current) % total + total) % total;
+      item.dataset.pos = pos;
+      const video = item.querySelector('.pvc-video');
+      if (video && pos !== 0 && !video.paused) {
+        video.pause();
+        syncPlayBtn(item, true);
+      }
+    });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('pvc-dot--active', i === current);
+      dot.setAttribute('aria-selected', i === current ? 'true' : 'false');
+    });
+  }
+
+  function goTo(index) {
+    current = ((index % total) + total) % total;
+    setPositions();
+  }
+
+  prevBtn?.addEventListener('click', () => goTo(current - 1));
+  nextBtn?.addEventListener('click', () => goTo(current + 1));
+  dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+  items.forEach((item, i) => {
+    item.addEventListener('click', () => {
+      if (item.dataset.pos !== '0') {
+        goTo(i);
+        return;
+      }
+      const video = item.querySelector('.pvc-video');
+      if (!video) return;
+      if (video.paused) {
+        video.play().catch(() => {});
+        syncPlayBtn(item, false);
+      } else {
+        video.pause();
+        syncPlayBtn(item, true);
+      }
+    });
+  });
+
+  items.forEach(item => {
+    const video = item.querySelector('.pvc-video');
+    if (!video) return;
+    video.addEventListener('ended', () => syncPlayBtn(item, true));
+  });
+
+  stage.setAttribute('tabindex', '0');
+  stage.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft')  goTo(current - 1);
+    if (e.key === 'ArrowRight') goTo(current + 1);
+  });
+
+  setPositions();
+}
+
+/* =============================================================
    BOOT
    ============================================================= */
 document.addEventListener('DOMContentLoaded', () => {
@@ -208,4 +292,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initContactForm();
   initSmoothScroll();
+  initProductVideoCarousel();
 });

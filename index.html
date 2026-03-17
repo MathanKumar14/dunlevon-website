@@ -16,7 +16,7 @@
     <div class="container">
       <div class="nav-inner">
         <a href="#hero" class="nav-logo" aria-label="Dunlevon home">
-          <img src="logo.jpg" alt="Dunlevon" class="nav-logo-img" />
+          <img src="images/logo.jpg" alt="Dunlevon" class="nav-logo-img" />
         </a>
         <ul class="nav-links" role="list">
           <li><a href="#hero">Home</a></li>
@@ -52,8 +52,8 @@
       <div class="container">
         <div class="hero-theory-box">
           <h2 class="hero-theory-title">From Rule&#8209;Based ADAS to End&#8209;to&#8209;End AI</h2>
-          <p class="hero-intro">The automotive industry is shifting from modular ADAS to integrated AI. Dunlevon provides the core infrastructure for this transition. We specialize in hardware&#8209;aware AI &mdash; optimizing state&#8209;of&#8209;the&#8209;art models for real&#8209;world constraints. Whether you are deploying L2 convenience features or architecting L4 urban pilot systems, our stack ensures deterministic performance, extreme efficiency, and global regulatory compliance.</p>
-          <span class="hero-tagline">We don&rsquo;t just write code &mdash; we harden it for the road.</span>
+          <p class="hero-intro">Dunlevon doesn&rsquo;t rely on &quot;perfect&quot; infrastructure. Our stack uses Vision-Centric Temporal Fusion to perceive drivable paths and predict agent intent in real-time. Whether it&rsquo;s a faded village road or a chaotic urban intersection, we provide the deterministic logic required for true safety.</p>
+          <span class="hero-tagline">We don&rsquo;t follow maps &mdash; we see the road.</span>
           <div class="hero-actions">
             <a href="#products" class="btn btn-primary">Our Products</a>
             <a href="#technology" class="btn btn-outline">
@@ -86,9 +86,9 @@
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/></svg>
               </div>
               <h3 class="tech-card-heading">END&#8209;TO&#8209;END ML PERCEPTION</h3>
-              <p class="tech-card-body">Deep expertise in state&#8209;of&#8209;the&#8209;art end&#8209;to&#8209;end autonomous driving architectures, including <strong>UniAD</strong> and <strong>VADv2</strong>. Transformer&#8209;based, query&#8209;centric models combining perception, prediction, and planning into a single differentiable pipeline for production deployment on edge hardware.</p>
+              <p class="tech-card-body">We build the functional pillars of autonomy. Our expertise spans the critical cycle of Perception, Occupancy, Tracking, and Planning. Level of granularity that allows vehicle to build its own world model in real-time. Integrating modular layers into a unified, query-centric architecture that will define our future L3 and L4 solutions.</p>
               <div class="tech-metric">
-                <span class="tech-metric-label tech-metric-label--sentence">Expertise in Models like UniAD &amp; VADv2</span>
+                <span class="tech-metric-label tech-metric-label--sentence">Occupancy Grids, Multi-Object Tracking, and Tactical Planning on a single instance.</span>
               </div>
             </div>
           </div>
@@ -210,7 +210,101 @@
           <p class="product-card-body">Classifies every pixel of the road scene in real&#8202;time: drivable surface, obstacles, road markings, and moving agents &mdash; giving the vehicle a full picture of its surroundings.</p>
         </article>
 
-      </div>
+      </div><!-- /.product-grid -->
+
+      <!-- ===== PRODUCT VIDEO CAROUSEL ===== -->
+      <div class="pvcarousel-wrap fade-up">
+        <div class="pvcarousel-header">
+          <h3 class="pvcarousel-title">Modules in Action</h3>
+          <p class="pvcarousel-sub">Select any card to focus &mdash; click the active card to play</p>
+        </div>
+
+        <div class="pvcarousel-stage" id="pvcarousel-stage">
+
+          <div class="pvc-item" data-index="0">
+            <video class="pvc-video" preload="metadata" src="videos/lane-master.mp4" playsinline></video>
+            <div class="pvc-glass">
+              <button class="pvc-play" aria-label="Play Lane-Master demo">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </button>
+              <div class="pvc-meta">
+                <span class="pvc-label">Lane&#8209;Master</span>
+                <span class="pvc-sub-label">Lane Centering &amp; Virtual Boundary Synthesis</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pvc-item" data-index="1">
+            <video class="pvc-video" preload="metadata" src="videos/adaptive-speed.mp4" playsinline></video>
+            <div class="pvc-glass">
+              <button class="pvc-play" aria-label="Play Adaptive Speed Control demo">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </button>
+              <div class="pvc-meta">
+                <span class="pvc-label">Adaptive Speed Control</span>
+                <span class="pvc-sub-label">Smart Following Distance &amp; Cut&#8209;in Response</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pvc-item" data-index="2">
+            <video class="pvc-video" preload="metadata" src="videos/emergency-brake.mp4" playsinline></video>
+            <div class="pvc-glass">
+              <button class="pvc-play" aria-label="Play Emergency Brake Guard demo">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </button>
+              <div class="pvc-meta">
+                <span class="pvc-label">Emergency Brake Guard</span>
+                <span class="pvc-sub-label">Auto Emergency Braking for Pedestrians &amp; Cyclists</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pvc-item" data-index="3">
+            <video class="pvc-video" preload="metadata" src="videos/scene-understanding.mp4" playsinline></video>
+            <div class="pvc-glass">
+              <button class="pvc-play" aria-label="Play Scene Understanding demo">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </button>
+              <div class="pvc-meta">
+                <span class="pvc-label">Scene Understanding</span>
+                <span class="pvc-sub-label">Road Segmentation &amp; Surrounding Object Detection</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pvc-item" data-index="4">
+            <video class="pvc-video" preload="metadata" src="videos/perception-planning.mp4" playsinline></video>
+            <div class="pvc-glass">
+              <button class="pvc-play" aria-label="Play Perception &amp; Planning demo">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </button>
+              <div class="pvc-meta">
+                <span class="pvc-label">Perception &amp; Planning</span>
+                <span class="pvc-sub-label">Unified World Model &amp; Trajectory Prediction</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.pvcarousel-stage -->
+
+        <div class="pvcarousel-controls">
+          <button class="pvc-nav pvc-nav--prev" id="pvc-prev" aria-label="Previous video">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="pvc-dots" role="tablist" aria-label="Select video">
+            <button class="pvc-dot" data-idx="0" role="tab" aria-label="Lane-Master demo"></button>
+            <button class="pvc-dot" data-idx="1" role="tab" aria-label="Adaptive Speed Control demo"></button>
+            <button class="pvc-dot" data-idx="2" role="tab" aria-label="Emergency Brake Guard demo"></button>
+            <button class="pvc-dot" data-idx="3" role="tab" aria-label="Scene Understanding demo"></button>
+            <button class="pvc-dot" data-idx="4" role="tab" aria-label="Perception &amp; Planning demo"></button>
+          </div>
+          <button class="pvc-nav pvc-nav--next" id="pvc-next" aria-label="Next video">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div><!-- /.pvcarousel-wrap -->
+
     </div>
   </section>
 
@@ -355,7 +449,7 @@
     <div class="container">
       <div class="footer-inner">
         <a href="#hero" class="footer-logo" aria-label="Dunlevon home">
-          <img src="logo.jpg" alt="Dunlevon" class="footer-logo-img" />
+          <img src="images/logo.jpg" alt="Dunlevon" class="footer-logo-img" />
         </a>
         <p class="footer-copy">&copy; 2026 Dunlevon Autonomous Systems. All rights reserved.</p>
         <ul class="footer-links" role="list">
