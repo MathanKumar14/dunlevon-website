@@ -103,7 +103,7 @@
               <p class="tech-card-body">Our proprietary INT8 post&#8209;training quantization engine preserves mean Average Precision while slashing compute overhead by 4&times; &mdash; validated across diverse driving conditions without sacrificing detection accuracy in safety&#8209;critical scenarios.</p>
               <div class="tech-metric">
                 <span class="tech-metric-val">4&times;</span>
-                <span class="tech-metric-label">Compute Overhead Reduction &middot; INT8</span>
+                <span class="tech-metric-label tech-metric-label--sentence">Compute overhead reduction &middot; INT8</span>
               </div>
             </div>
           </div>
@@ -114,10 +114,10 @@
               <div class="tech-card-icon tech-card-icon--pink" aria-hidden="true">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
               </div>
-              <h3 class="tech-card-heading">MODEL END&#8209;TO&#8209;END INTEGRATION</h3>
-              <p class="tech-card-body">Seamless integration of perception models into production automotive pipelines. We bridge research&#8209;grade architectures and vehicle&#8209;grade deployable modules: model versioning, sensor&#8209;model interface abstraction, calibration pipelines, and runtime scheduling.</p>
+              <h3 class="tech-card-heading">FULL STACK ARCHITECTURE</h3>
+              <p class="tech-card-body">Our expertise lies in porting high-fidelity L2 solutions into production-grade middleware, ensuring every perception module communicates with the vehicle&rsquo;s actuators with zero-copy efficiency. From raw sensor calibration to TensorRT-accelerated inference. We architect the full-stack path from the neural network to the CAN bus, optimizing for performance and safety-critical reliability on the NVIDIA Orin platform.</p>
               <div class="tech-metric">
-                <span class="tech-metric-label tech-metric-label--sentence">Customizable E2E production integration</span>
+                <span class="tech-metric-label tech-metric-label--sentence">Optimized Middleware for Vehicle-Grade Deployment</span>
               </div>
             </div>
           </div>
@@ -126,7 +126,9 @@
 
       <!-- Full-width video below -->
       <div class="tech-video-wrap fade-up">
-          <div class="tech-video-frame" role="img" aria-label="Dunlevon Perception Engine demo video">
+          <div class="tech-video-frame" role="region" aria-label="Dunlevon Perception Engine demo video">
+            <!-- Actual video -->
+            <video class="tech-video" id="tech-main-video" src="videos/scene3d.mp4" preload="metadata" playsinline></video>
             <!-- Data overlay corners -->
             <div class="video-corner video-corner-tl" aria-hidden="true"></div>
             <div class="video-corner video-corner-tr" aria-hidden="true"></div>
@@ -138,10 +140,18 @@
             <span class="vid-coord vid-coord-bl" aria-hidden="true">CAM:FRONT &bull; &theta;:0.0&deg;</span>
             <span class="vid-coord vid-coord-br" aria-hidden="true">STREAM:LIVE</span>
             <div class="video-inner">
-              <button class="video-play-btn" aria-label="Play Perception Engine demo">
+              <button class="video-play-btn" id="tech-play-btn" aria-label="Play Perception Engine demo">
                 <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
               </button>
               <p class="video-caption">Watch our Perception Engine Demo</p>
+            </div>
+            <!-- Timeline scrubber -->
+            <div class="vid-timeline" aria-hidden="true">
+              <div class="vid-timeline-track">
+                <div class="vid-timeline-fill" id="tech-timeline-fill"></div>
+              </div>
+              <input class="vid-timeline-range" id="tech-timeline-range" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek video" />
+              <span class="vid-timeline-time" id="tech-timeline-time">0:00</span>
             </div>
           </div>
         </div><!-- /.tech-video-wrap -->
@@ -231,6 +241,11 @@
                 <span class="pvc-label">Lane&#8209;Master</span>
                 <span class="pvc-sub-label">Lane Centering &amp; Virtual Boundary Synthesis</span>
               </div>
+              <div class="pvc-timeline">
+                <div class="pvc-timeline-track"><div class="pvc-timeline-fill"></div></div>
+                <input class="pvc-timeline-range" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek Lane-Master video" />
+                <span class="pvc-timeline-time">0:00</span>
+              </div>
             </div>
           </div>
 
@@ -244,23 +259,15 @@
                 <span class="pvc-label">Adaptive Speed Control</span>
                 <span class="pvc-sub-label">Smart Following Distance &amp; Cut&#8209;in Response</span>
               </div>
-            </div>
-          </div>
-
-          <div class="pvc-item" data-index="2">
-            <video class="pvc-video" preload="metadata" src="videos/emergency-brake.mp4" playsinline></video>
-            <div class="pvc-glass">
-              <button class="pvc-play" aria-label="Play Emergency Brake Guard demo">
-                <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-              </button>
-              <div class="pvc-meta">
-                <span class="pvc-label">Emergency Brake Guard</span>
-                <span class="pvc-sub-label">Auto Emergency Braking for Pedestrians &amp; Cyclists</span>
+              <div class="pvc-timeline">
+                <div class="pvc-timeline-track"><div class="pvc-timeline-fill"></div></div>
+                <input class="pvc-timeline-range" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek Adaptive Speed Control video" />
+                <span class="pvc-timeline-time">0:00</span>
               </div>
             </div>
           </div>
 
-          <div class="pvc-item" data-index="3">
+          <div class="pvc-item" data-index="2">
             <video class="pvc-video" preload="metadata" src="videos/scene-understanding.mp4" playsinline></video>
             <div class="pvc-glass">
               <button class="pvc-play" aria-label="Play Scene Understanding demo">
@@ -270,18 +277,10 @@
                 <span class="pvc-label">Scene Understanding</span>
                 <span class="pvc-sub-label">Road Segmentation &amp; Surrounding Object Detection</span>
               </div>
-            </div>
-          </div>
-
-          <div class="pvc-item" data-index="4">
-            <video class="pvc-video" preload="metadata" src="videos/perception-planning.mp4" playsinline></video>
-            <div class="pvc-glass">
-              <button class="pvc-play" aria-label="Play Perception &amp; Planning demo">
-                <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-              </button>
-              <div class="pvc-meta">
-                <span class="pvc-label">Perception &amp; Planning</span>
-                <span class="pvc-sub-label">Unified World Model &amp; Trajectory Prediction</span>
+              <div class="pvc-timeline">
+                <div class="pvc-timeline-track"><div class="pvc-timeline-fill"></div></div>
+                <input class="pvc-timeline-range" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek Scene Understanding video" />
+                <span class="pvc-timeline-time">0:00</span>
               </div>
             </div>
           </div>
@@ -295,9 +294,7 @@
           <div class="pvc-dots" role="tablist" aria-label="Select video">
             <button class="pvc-dot" data-idx="0" role="tab" aria-label="Lane-Master demo"></button>
             <button class="pvc-dot" data-idx="1" role="tab" aria-label="Adaptive Speed Control demo"></button>
-            <button class="pvc-dot" data-idx="2" role="tab" aria-label="Emergency Brake Guard demo"></button>
-            <button class="pvc-dot" data-idx="3" role="tab" aria-label="Scene Understanding demo"></button>
-            <button class="pvc-dot" data-idx="4" role="tab" aria-label="Perception &amp; Planning demo"></button>
+            <button class="pvc-dot" data-idx="2" role="tab" aria-label="Scene Understanding demo"></button>
           </div>
           <button class="pvc-nav pvc-nav--next" id="pvc-next" aria-label="Next video">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>

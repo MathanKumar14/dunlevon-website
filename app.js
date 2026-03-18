@@ -198,6 +198,49 @@ function initSmoothScroll() {
 }
 
 /* =============================================================
+   TECH VIDEO BOX  (page 2 – scene3d.mp4)
+   Play/pause button + draggable timeline scrubber.
+   ============================================================= */
+function initTechVideo() {
+  const video    = document.getElementById('tech-main-video');
+  const playBtn  = document.getElementById('tech-play-btn');
+  const fill     = document.getElementById('tech-timeline-fill');
+  const range    = document.getElementById('tech-timeline-range');
+  const timeEl   = document.getElementById('tech-timeline-time');
+  if (!video || !playBtn) return;
+
+  const PLAY_SVG  = `<svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>`;
+  const PAUSE_SVG = `<svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>`;
+
+  function fmtTime(s) {
+    const m = Math.floor(s / 60);
+    return m + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+  }
+
+  playBtn.addEventListener('click', () => {
+    if (video.paused) { video.play().catch(() => {}); playBtn.innerHTML = PAUSE_SVG; }
+    else              { video.pause();                 playBtn.innerHTML = PLAY_SVG;  }
+  });
+
+  video.addEventListener('ended', () => { playBtn.innerHTML = PLAY_SVG; });
+
+  video.addEventListener('timeupdate', () => {
+    if (!video.duration) return;
+    const pct = (video.currentTime / video.duration) * 100;
+    if (fill)   fill.style.width = pct + '%';
+    if (range)  range.value      = pct;
+    if (timeEl) timeEl.textContent = fmtTime(video.currentTime);
+  });
+
+  if (range) {
+    range.addEventListener('input', () => {
+      if (!video.duration) return;
+      video.currentTime = (range.value / 100) * video.duration;
+    });
+  }
+}
+
+/* =============================================================
    PRODUCT VIDEO CAROUSEL
    4-up stepped-transparent video showcase at end of Products.
    Active card is front/full; others cascade diagonally behind.
@@ -270,6 +313,32 @@ function initProductVideoCarousel() {
     const video = item.querySelector('.pvc-video');
     if (!video) return;
     video.addEventListener('ended', () => syncPlayBtn(item, true));
+
+    // Timeline scrubber wiring
+    const fill   = item.querySelector('.pvc-timeline-fill');
+    const range  = item.querySelector('.pvc-timeline-range');
+    const timeEl = item.querySelector('.pvc-timeline-time');
+
+    function fmtTime(s) {
+      const m = Math.floor(s / 60);
+      return m + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+    }
+
+    video.addEventListener('timeupdate', () => {
+      if (!video.duration) return;
+      const pct = (video.currentTime / video.duration) * 100;
+      if (fill)   fill.style.width      = pct + '%';
+      if (range)  range.value           = pct;
+      if (timeEl) timeEl.textContent    = fmtTime(video.currentTime);
+    });
+
+    if (range) {
+      range.addEventListener('input', (e) => {
+        e.stopPropagation(); // don't bubble to card click
+        if (!video.duration) return;
+        video.currentTime = (range.value / 100) * video.duration;
+      });
+    }
   });
 
   stage.setAttribute('tabindex', '0');
@@ -292,5 +361,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initContactForm();
   initSmoothScroll();
+  initTechVideo();
   initProductVideoCarousel();
 });
