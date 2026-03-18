@@ -1789,26 +1789,16 @@ footer {
     -webkit-backdrop-filter: none;
   }
 
-  /* While playing: keep a subtle pause button visible at all times */
+  /* While playing: fully hide overlay and controls so video is 100% clear.
+     Tapping anywhere on the card pauses it (handled by JS click handler). */
   .pvc-item.is-playing .pvc-glass {
-    background:              rgba(10, 15, 30, 0.10);
+    background:              transparent;
     backdrop-filter:         none;
     -webkit-backdrop-filter: none;
   }
-  .pvc-item.is-playing .pvc-play {
-    opacity:        0.55;
-    pointer-events: auto;
-  }
+  .pvc-item.is-playing .pvc-play,
   .pvc-item.is-playing .pvc-meta {
     opacity:        0;
     pointer-events: none;
-  }
-
-  /* Tap-to-reveal: when .show-controls is added by JS, flash controls fully */
-  .pvc-item.is-playing.show-controls .pvc-glass {
-    background: rgba(10, 15, 30, 0.42);
-  }
-  .pvc-item.is-playing.show-controls .pvc-play {
-    opacity: 1;
   }
 }

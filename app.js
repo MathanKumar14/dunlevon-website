@@ -323,21 +323,6 @@ function initProductVideoCarousel() {
     });
   });
 
-  // Mobile: tap while playing → briefly show controls at full opacity
-  const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
-  if (isTouchDevice) {
-    items.forEach(item => {
-      item.addEventListener('touchstart', () => {
-        if (!item.classList.contains('is-playing')) return;
-        item.classList.add('show-controls');
-        clearTimeout(item._controlsTimer);
-        item._controlsTimer = setTimeout(() => {
-          item.classList.remove('show-controls');
-        }, 2500);
-      }, { passive: true });
-    });
-  }
-
   items.forEach(item => {
     const video = item.querySelector('.pvc-video');
     if (!video) return;
